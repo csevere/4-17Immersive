@@ -5,6 +5,10 @@ import pygame
 pygame.init()
 clock = pygame.time.Clock()
 
+#bring in the math module so we can absolute value
+from math import fabs
+from random import randint
+
 # 3 Create a screen with a size
 
 screen = {
@@ -75,9 +79,9 @@ while game_on:
 				keys_down['up'] = False
             if event.key == keys['down']:
 				keys_down['down'] = False
-			if event.key == keys['left']:
+            if event.key == keys['left']:
 				keys_down['left'] = False
-			if event.key == keys['right']:
+		    if event.key == keys['right']:
 				keys_down['right'] = False
 
 
@@ -91,6 +95,18 @@ while game_on:
         hero['x'] -= hero ['speed']
     elif keys_down['right']:
         hero['x'] += hero ['speed']
+
+        #COLLISION DETECTION
+    distance_between = fabs(hero['x'] - goblin['x' +1] + hero['y'] = goblin['y'])
+    if (distance_between < 32):
+        print ("Collision!!")
+        Generate a random X > 0, X < screen['width']
+        Generate a random Y > 0, Y < screen['height']
+        rand_x = randint (0, screen ["width"])
+        rand_x = randint (0, screen ["height"])
+        goblin['x'] = rand_x
+        goblin['y'] = rand_y
+
 
 
 
